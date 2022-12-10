@@ -31,7 +31,7 @@
             &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &none &none &none &none &bt BT_CLR
             &none  &none &none &none &none  &none &none &none &none &none
             &none  &none &none &none &none  &none &none &none &none &none
-                    &tog MAC_LETTER   &tog WIN_LETTER     &none  &none
+                    &to MAC_LETTER   &to WIN_LETTER     &none  &none
             >;
         };
 
@@ -40,24 +40,24 @@
             &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I  &kp O  &kp P
             &kp A  &kp S  &mt LALT D  &mt LGUI F  &kp G        &kp H  &mt LGUI J  &mt RALT K  &kp L  &kp BSPC
             &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH
-                                            &caps_word   &kp SPACE     &kp ENTER  &tog MAC_SYM
+                                            &caps_word   &kp SPACE     &kp ENTER  &to MAC_SYM
             >;
         };
 
         mac_sym_layer {
             bindings = <
-            &kp ESC  &kp RA(L)  &kp BACKSLASH     &kp LS(4)     &kp PERCENT         &kp RA(N)   &kp ASTERISK  &none  &kp GRAVE &kp RALT
-            &kp TAB  &kp RPAR  &kp LA(PIPE)     &kp RA(E)     &kp DELETE         &kp LS(RA(7))   &kp RA(8) &kp RA(9)  &kp RA(7)    &kp BSPC
-            &tog MAC_MEDIA  &kp RALT     &kp AT     &kp LT     &kp GT        &kp RA(5)     &kp LS(8)     &kp LS(9)     &kp RA(6)     &tog MAC_CONTROL
-                                                  &tog MAC_LETTER     &kp SPACE       &kp ENTER   &tog MAC_NUMBER
+            &kp ESC  &kp RA(L)  &kp BACKSLASH     &kp LS(N4)     &kp PERCENT         &kp RA(N)   &kp ASTERISK  &none  &kp GRAVE &kp RALT
+            &kp TAB  &kp RPAR  &kp LA(PIPE)     &kp RA(E)     &kp DELETE         &kp LS(RA(N7))   &kp RA(N8) &kp RA(N9)  &kp RA(N7)    &kp BSPC
+            &to MAC_MEDIA  &kp RALT     &kp AT     &kp LT     &kp GT        &kp RA(N5)     &kp LS(N8)     &kp LS(N9)     &kp RA(N6)     &to MAC_CONTROL
+                                                  &to MAC_LETTER     &kp SPACE       &kp ENTER   &to MAC_NUMBER
             >;
         };
         mac_number_layer {
             bindings = <
             &kp ESC  &none &none &none &none  &kp MINUS &kp N7 &kp N8 &kp N9 &kp RALT
             &kp TAB   &none &none &none &none  &kp EQUAL &kp N4 &kp N5 &kp N6 &kp BSPC
-            &none  &kp ASTERISK &none &none &kp COLON  &kp N0 &kp N1 &kp N2 &kp N3 &tog MAC_CONTROL
-                    &tog MAC_LETTER     &kp SPACE       &kp ENTER   &tog MAC_SYM
+            &none  &kp ASTERISK &none &none &kp COLON  &kp N0 &kp N1 &kp N2 &kp N3 &to MAC_CONTROL
+                    &to MAC_LETTER     &kp SPACE       &kp ENTER   &to MAC_SYM
             >;
         };
         mac_media_layer {
@@ -65,7 +65,7 @@
             &none  &none &none &none &none  &none &none &none &none &none
             &none  &none &none &none &none  &none &none &none &none &none
             &none  &none &none &none &none  &none &none &none &none &none
-                    &tog MAC_LETTER     &kp SPACE       &kp ENTER   &tog MAC_SYM
+                    &to MAC_LETTER     &kp SPACE       &kp ENTER   &to MAC_SYM
             >;
         };
         mac_control_layer {
@@ -73,7 +73,7 @@
             &none  &none &none &none &none  &none &none &none &none &none
             &none  &none &none &none &none  &kp LEFT_ARROW &kp DOWN_ARROW &kp UP_ARROW &kp RIGHT_ARROW &kp BSPC
             &none  &none &none &none &none  &none &none &none &none &none
-                    &tog MAC_LETTER     &kp SPACE       &kp ENTER   &tog MAC_SYM
+                    &to MAC_LETTER     &kp SPACE       &kp ENTER   &to MAC_SYM
             >;
         };     
         win_letter_layer {
@@ -81,16 +81,16 @@
             &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I  &kp O  &kp P
             &kp A  &kp S  &mt LALT D  &mt LCTRL F  &kp G        &kp H  &mt LCTRL J  &mt LALT K  &kp L  &kp BSPC
             &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH
-                                            &caps_word   &kp SPACE     &kp ENTER  &tog WIN_SYM
+                                            &caps_word   &kp SPACE     &kp ENTER  &to WIN_SYM
             >;
         };
 
         win_sym_layer {
             bindings = <
-            &kp ESC  &kp RA(L)  &kp BACKSLASH     &kp LS(4)     &kp PERCENT         &kp RA(N)   &kp ASTERISK  &none  &kp GRAVE &kp RALT
-            &kp TAB  &kp RPAR  &kp LA(PIPE)     &kp RA(E)     &kp DELETE         &kp LS(RA(7))   &kp RA(8) &kp RA(9)  &kp RA(7)    &kp BSPC
-            &tog WIN_MEDIA  &kp RALT     &kp AT     &kp LT     &kp GT        &kp RA(5)     &kp LS(8)     &kp LS(9)     &kp RA(6)     &tog WIN_CONTROL
-                                                  &tog WIN_LETTER     &kp SPACE       &kp ENTER   &tog WIN_NUMBER
+            &kp ESC  &kp RA(L)  &kp BACKSLASH     &kp LS(N4)     &kp PERCENT         &kp RA(N)   &kp ASTERISK  &none  &kp GRAVE &kp RALT
+            &kp TAB  &kp RPAR  &kp LA(PIPE)     &kp RA(E)     &kp DELETE         &kp LS(RA(N7))   &kp RA(N8) &kp RA(N9)  &kp RA(N7)    &kp BSPC
+            &to WIN_MEDIA  &kp RALT     &kp AT     &kp LT     &kp GT        &kp RA(N5)     &kp LS(N8)     &kp LS(N9)     &kp RA(N6)     &to WIN_CONTROL
+                                                  &to WIN_LETTER     &kp SPACE       &kp ENTER   &to WIN_NUMBER
             >;
         };
         win_number_layer {
@@ -98,7 +98,7 @@
             &none  &none &none &none &none  &none &none &none &none &none
             &none  &none &none &none &none  &none &none &none &none &none
             &none  &none &none &none &none  &none &none &none &none &none
-                    &tog WIN_LETTER     &kp SPACE       &kp ENTER   &tog WIN_SYM
+                    &to WIN_LETTER     &kp SPACE       &kp ENTER   &to WIN_SYM
             >;
         };
         win_media_layer {
@@ -106,7 +106,7 @@
             &none  &none &none &none &none  &none &none &none &none &none
             &none  &none &none &none &none  &none &none &none &none &none
             &none  &none &none &none &none  &none &none &none &none &none
-                    &tog WIN_LETTER     &kp SPACE       &kp ENTER   &tog WIN_SYM
+                    &to WIN_LETTER     &kp SPACE       &kp ENTER   &to WIN_SYM
             >;
         };
         win_control_layer {
@@ -114,7 +114,7 @@
             &none  &none &none &none &none  &none &none &none &none &none
             &none  &none &none &none &none  &none &none &none &none &none
             &none  &none &none &none &none  &none &none &none &none &none
-                   &tog WIN_LETTER     &kp SPACE       &kp ENTER   &tog WIN_SYM
+                   &to WIN_LETTER     &kp SPACE       &kp ENTER   &to WIN_SYM
             >;
         };       
     };
