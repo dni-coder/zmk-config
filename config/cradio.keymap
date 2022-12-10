@@ -35,8 +35,8 @@
 
         mac_letter_layer {
             bindings = <
-            &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &ht_hp LBRC U  &kp I  &ht_hp SEMICOLON O  &kp P
-            &ht_hp SQT A  &kp S  &mt LALT D  &mt LGUI F  &kp G        &kp H  &mt LGUI J  &mt RALT K  &kp L  &kp BSPC
+            &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &mo LBRC U  &kp I  &mo SEMICOLON O  &kp P
+            &mo SQT A  &kp S  &mt LALT D  &mt LGUI F  &kp G        &kp H  &mt LGUI J  &mt RALT K  &kp L  &kp BSPC
             &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &mt MINUS COMMA  &mt DOT  &kp FSLH
                                             &caps_word   &kp SPACE     &kp ENTER  &tog MAC_SYM
             >;
