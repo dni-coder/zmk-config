@@ -2,23 +2,20 @@
 // SPDX-License-Identifier: MIT
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>// Layer definitions
+#define BASE 0
+#define MAC_LETTER 1
+#define MAC_SYM 2
+#define MAC_NUMBER 3
+#define MAC_MEDIA 4
+#define MAC_CONTROL 5
+#define WIN_LETTER 6
+#define WIN_SYM 7
+#define WIN_NUMBER 8
+#define WIN_MEDIA 9
+#define WIN_CONTROL 10
 
-
-// Layer definitions
-    #define BASE 0
-    #define MAC_LETTER 1
-    #define MAC_SYM 2
-    #define MAC_NUMBER 3
-    #define MAC_MEDIA 4
-    #define MAC_CONTROL 5
-    #define WIN_LETTER 6
-    #define WIN_SYM 7
-    #define WIN_NUMBER 8
-    #define WIN_MEDIA 9
-    #define WIN_CONTROL 10
-        
 // -----------------
 
 &mt {
@@ -26,99 +23,106 @@
 };
 
 / {
-
     keymap {
         compatible = "zmk,keymap";
+
         default_layer {
             bindings = <
-            &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &none &none &none &none &bt BT_CLR
-            &none  &none &none &none &none  &none &none &none &none &none
-            &none  &none &none &none &none  &none &none &none &none &none
-                    &to MAC_LETTER   &to WIN_LETTER     &none  &none
+ &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &none   &none   &none   &none  &bt BT_CLR
+        &none         &none         &none         &none         &none   &none   &none   &none   &none       &none
+        &none         &none         &none         &none         &none   &none   &none   &none   &none       &none
+                                                  &to 1         &to 6   &none   &none
             >;
         };
 
         mac_letter_layer {
             bindings = <
-            &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I  &kp O  &kp P
-            &kp A  &kp S  &mt LALT D  &mt LGUI F  &kp G        &kp H  &mt LGUI J  &mt RALT K  &kp L  &kp BSPC
-            &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH
-                                            &sk LSHIFT   &kp SPACE     &kp ENTER  &to MAC_SYM
+  &kp Q   &kp W       &kp E       &kp R      &kp T      &kp Y       &kp U       &kp I    &kp O     &kp P
+  &kp A   &kp S  &mt LALT D  &mt LGUI F      &kp G      &kp H  &mt LGUI J  &mt RALT K    &kp L  &kp BSPC
+  &kp Z   &kp X       &kp C       &kp V      &kp B      &kp N       &kp M   &kp COMMA  &kp DOT  &kp FSLH
+                             &sk LSHIFT  &kp SPACE  &kp ENTER       &to 2
             >;
         };
 
         mac_sym_layer {
             bindings = <
-            &kp ESC  &kp RA(L)  &kp BACKSLASH     &kp LS(N4)     &kp PERCENT         &kp RA(N)   &kp ASTERISK  &none  &kp GRAVE &kp RALT
-            &kp TAB  &kp RPAR  &kp LA(PIPE)     &kp RA(E)     &kp DELETE         &kp LS(RA(N7))   &kp RA(N8) &kp RA(N9)  &kp RA(N7)    &kp BSPC
-            &to MAC_MEDIA  &kp RALT     &kp AT     &kp LT     &kp GT        &kp RA(N5)     &kp LS(N8)     &kp LS(N9)     &kp RA(N6)     &to MAC_CONTROL
-                                                  &to MAC_LETTER     &kp SPACE       &kp ENTER   &to MAC_NUMBER
+ &kp ESC  &kp RA(L)  &kp BACKSLASH  &kp LS(N4)  &kp PERCENT       &kp RA(N)  &kp ASTERISK       &none   &kp GRAVE  &kp RALT
+ &kp TAB   &kp RPAR   &kp LA(PIPE)   &kp RA(E)   &kp DELETE  &kp LS(RA(N7))    &kp RA(N8)  &kp RA(N9)  &kp RA(N7)  &kp BSPC
+   &to 4   &kp RALT         &kp AT      &kp LT       &kp GT      &kp RA(N5)    &kp LS(N8)  &kp LS(N9)  &kp RA(N6)     &to 5
+                                         &to 1    &kp SPACE       &kp ENTER         &to 3
             >;
         };
+
         mac_number_layer {
             bindings = <
-            &kp ESC  &none &none &none &none  &kp MINUS &kp N7 &kp N8 &kp N9 &kp RALT
-            &kp TAB   &none &none &none &none  &kp EQUAL &kp N4 &kp N5 &kp N6 &kp BSPC
-            &none  &kp ASTERISK &none &none &kp COLON  &kp N0 &kp N1 &kp N2 &kp N3 &to MAC_CONTROL
-                    &to MAC_LETTER     &kp SPACE       &kp ENTER   &to MAC_SYM
+ &kp ESC             &none   &none   &none      &none  &kp MINUS  &kp N7  &kp N8  &kp N9  &kp RALT
+ &kp TAB             &none   &none   &none      &none  &kp EQUAL  &kp N4  &kp N5  &kp N6  &kp BSPC
+   &none  &kp LS(ASTERISK)   &none   &none  &kp COLON     &kp N0  &kp N1  &kp N2  &kp N3     &to 5
+                                     &to 1  &kp SPACE  &kp ENTER   &to 2
             >;
         };
+
         mac_media_layer {
             bindings = <
-            &none  &none &none &none &none  &none &none &none &none &none
-            &none  &none &none &none &none  &none &none &none &none &none
-            &none  &none &none &none &none  &none &none &none &none &none
-                    &to MAC_LETTER     &kp SPACE       &kp ENTER   &to MAC_SYM
+ &kp ESC   &none   &none   &none     &none      &none  &kp F7  &kp F8  &kp F9  &kp F10
+ &kp TAB   &none   &none   &none     &none      &none  &kp F4  &kp F5  &kp F6  &kp F11
+   &none   &none   &none   &none     &none      &none  &kp F1  &kp F2  &kp F3  &kp F12
+                           &to 1  &kp LGUI  &kp ENTER   &to 2
             >;
         };
+
         mac_control_layer {
             bindings = <
-            &none  &none &none &none &none  &none &none &none &none &none
-            &none  &none &none &none &none  &kp LEFT_ARROW &kp DOWN_ARROW &kp UP_ARROW &kp RIGHT_ARROW &kp BSPC
-            &none  &none &none &none &none  &none &none &none &none &none
-                    &to MAC_LETTER     &kp SPACE       &kp ENTER   &to MAC_SYM
+  &none   &none   &none   &none      &none     &kp PAGE_UP        &kp HOME       &kp END            &none     &none
+  &none   &none   &none   &none      &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp BSPC
+  &none   &none   &none   &none      &none   &kp PAGE_DOWN           &none         &none            &none     &none
+                          &to 1  &kp SPACE       &kp ENTER           &to 2
             >;
-        };     
+        };
+
         win_letter_layer {
             bindings = <
-            &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I  &kp O  &kp P
-            &kp A  &kp S  &mt LALT D  &mt LCTRL F  &kp G        &kp H  &mt LCTRL J  &mt LALT K  &kp L  &kp BSPC
-            &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH
-                                            &sk LSHIFT   &kp SPACE     &kp ENTER  &to WIN_SYM
+  &kp Q   &kp W       &kp E        &kp R      &kp T      &kp Y        &kp U       &kp I    &kp O     &kp P
+  &kp A   &kp S  &mt LALT D  &mt LCTRL F      &kp G      &kp H  &mt LCTRL J  &mt LALT K    &kp L  &kp BSPC
+  &kp Z   &kp X       &kp C        &kp V      &kp B      &kp N        &kp M   &kp COMMA  &kp DOT  &kp FSLH
+                              &sk LSHIFT  &kp SPACE  &kp ENTER        &to 7
             >;
         };
 
         win_sym_layer {
             bindings = <
-            &kp ESC  &kp RA(L)  &kp BACKSLASH     &kp LS(N4)     &kp PERCENT         &kp RA(N)   &kp ASTERISK  &none  &kp GRAVE &kp RALT
-            &kp TAB  &kp RPAR  &kp LA(PIPE)     &kp RA(E)     &kp DELETE         &kp LS(RA(N7))   &kp RA(N8) &kp RA(N9)  &kp RA(N7)    &kp BSPC
-            &to WIN_MEDIA  &kp RALT     &kp AT     &kp LT     &kp GT        &kp RA(N5)     &kp LS(N8)     &kp LS(N9)     &kp RA(N6)     &to WIN_CONTROL
-                                                  &to WIN_LETTER     &kp SPACE       &kp ENTER   &to WIN_NUMBER
+ &kp ESC  &kp RA(L)  &kp BACKSLASH  &kp LS(N4)  &kp PERCENT       &kp RA(N)  &kp ASTERISK       &none   &kp GRAVE  &kp RALT
+ &kp TAB   &kp RPAR   &kp LA(PIPE)   &kp RA(E)   &kp DELETE  &kp LS(RA(N7))    &kp RA(N8)  &kp RA(N9)  &kp RA(N7)  &kp BSPC
+   &to 9   &kp RALT         &kp AT      &kp LT       &kp GT      &kp RA(N5)    &kp LS(N8)  &kp LS(N9)  &kp RA(N6)    &to 10
+                                         &to 6    &kp SPACE       &kp ENTER         &to 8
             >;
         };
+
         win_number_layer {
             bindings = <
-            &none  &none &none &none &none  &none &none &none &none &none
-            &none  &none &none &none &none  &none &none &none &none &none
-            &none  &none &none &none &none  &none &none &none &none &none
-                    &to WIN_LETTER     &kp SPACE       &kp ENTER   &to WIN_SYM
+  &none   &none   &none   &none      &none      &none   &none   &none   &none   &none
+  &none   &none   &none   &none      &none      &none   &none   &none   &none   &none
+  &none   &none   &none   &none      &none      &none   &none   &none   &none   &none
+                          &to 6  &kp SPACE  &kp ENTER   &to 7
             >;
         };
+
         win_media_layer {
             bindings = <
-            &none  &none &none &none &none  &none &none &none &none &none
-            &none  &none &none &none &none  &none &none &none &none &none
-            &none  &none &none &none &none  &none &none &none &none &none
-                    &to WIN_LETTER     &kp SPACE       &kp ENTER   &to WIN_SYM
+  &none   &none   &none   &none      &none      &none   &none   &none   &none   &none
+  &none   &none   &none   &none      &none      &none   &none   &none   &none   &none
+  &none   &none   &none   &none      &none      &none   &none   &none   &none   &none
+                          &to 6  &kp SPACE  &kp ENTER   &to 7
             >;
         };
+
         win_control_layer {
             bindings = <
-            &none  &none &none &none &none  &none &none &none &none &none
-            &none  &none &none &none &none  &none &none &none &none &none
-            &none  &none &none &none &none  &none &none &none &none &none
-                   &to WIN_LETTER     &kp SPACE       &kp ENTER   &to WIN_SYM
+  &none   &none   &none   &none      &none      &none   &none   &none   &none   &none
+  &none   &none   &none   &none      &none      &none   &none   &none   &none   &none
+  &none   &none   &none   &none      &none      &none   &none   &none   &none   &none
+                          &to 6  &kp SPACE  &kp ENTER   &to 7
             >;
-        };       
+        };
     };
 };
